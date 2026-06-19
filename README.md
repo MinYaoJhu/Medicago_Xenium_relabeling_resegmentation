@@ -132,3 +132,16 @@ To force a resegmentation rerun and overwrite an existing output folder, set `FO
 ```bash
 FORCE=1 bash resegmentation/HnE_Mt_50+rhizobia_50_gene_panel/run_import_HE_rhizobia_50plus50_20260312.sh
 ```
+
+---
+
+## Dependencies
+
+- Xenium Ranger
+
+---
+
+## Contact
+
+Min-Yao Jhu  
+Email: myj23@cam.ac.uk
