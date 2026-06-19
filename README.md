@@ -1,6 +1,6 @@
 # Medicago Xenium Relabeling and Resegmentation
 
-![Conceptual overview of the Medicago Xenium Relabeling and Resegmentation workflow](docs/figures/relabel_segmentation_workflow.png)
+![Conceptual overview of the Medicago Xenium Relabeling and Resegmentation workflow](relabel_segmentation_workflow.png)
 
 ## Overview
 
