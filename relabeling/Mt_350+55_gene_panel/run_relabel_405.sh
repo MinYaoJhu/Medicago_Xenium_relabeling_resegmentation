@@ -2,16 +2,17 @@
 set -euo pipefail
 
 # ====== CONFIG ======
-RAW_DIR="/home/myj23/myj23/Xenium/raw_outputs/480_gene"
+XENIUM_ROOT="${XENIUM_ROOT:-/path/to/Xenium}"  # set to your Xenium data folder
+RAW_DIR="${RAW_DIR:-${XENIUM_ROOT}/raw_outputs/480_gene}"
 
-PANEL_DIR="/home/myj23/myj23/Xenium/subset_panel/corrected_panel_json"
-PANEL_JSON="${PANEL_DIR}/Mt_380_standalone_480_Mt_100_add-on_100_genes_panel_subset_405_minyao_corrected.json"
+PANEL_DIR="${PANEL_DIR:-${XENIUM_ROOT}/subset_panel/corrected_panel_json}"
+PANEL_JSON="${PANEL_JSON:-${PANEL_DIR}/Mt_380_standalone_480_Mt_100_add-on_100_genes_panel_subset_405_minyao_corrected.json}"
 
-OUT_ROOT="/home/myj23/myj23/Xenium/relabeled/480_gene_panel/405_gene_relabel_20260208"
-LOG_DIR="${OUT_ROOT}/logs"
+OUT_ROOT="${OUT_ROOT:-${XENIUM_ROOT}/relabeled/480_gene_panel/405_gene_relabel_20260208}"
+LOG_DIR="${LOG_DIR:-${OUT_ROOT}/logs}"
 
-CORES=12
-MEM=24
+CORES="${CORES:-12}"
+MEM="${MEM:-24}"
 
 # Label used in output run IDs
 RUN_TAG="relabel405_20260208"

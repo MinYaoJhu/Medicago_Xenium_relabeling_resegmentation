@@ -4,16 +4,17 @@ set -euo pipefail
 # =========================
 # CONFIG (UPDATE FOR THIS RUN)
 # =========================
-PANEL="/home/myj23/myj23/Xenium/subset_panel/corrected_panel_json/Sm_50_add-on_rhizobia_50g_gene_panel_Mt_50_standalone_base_corrected.json"
-RAW_DIR="/home/myj23/myj23/Xenium/raw_outputs/rhizobia_50+50"
+XENIUM_ROOT="${XENIUM_ROOT:-/path/to/Xenium}"  # set to your Xenium data folder
+PANEL="${PANEL:-${XENIUM_ROOT}/subset_panel/corrected_panel_json/Sm_50_add-on_rhizobia_50g_gene_panel_Mt_50_standalone_base_corrected.json}"
+RAW_DIR="${RAW_DIR:-${XENIUM_ROOT}/raw_outputs/rhizobia_50+50}"
 
 # A dedicated run folder under your relabeled directory (keeps runs clean & reproducible)
 RUN_TAG="relabel_20260302"
-OUT_ROOT="/home/myj23/myj23/Xenium/relabeled/rhizobia_50+50/${RUN_TAG}"
-LOG_DIR="${OUT_ROOT}/logs"
+OUT_ROOT="${OUT_ROOT:-${XENIUM_ROOT}/relabeled/rhizobia_50+50/${RUN_TAG}}"
+LOG_DIR="${LOG_DIR:-${OUT_ROOT}/logs}"
 
-CORES=12
-MEM=24
+CORES="${CORES:-12}"
+MEM="${MEM:-24}"
 
 # Samples must match the __XEN-???__ substring in the raw bundle folder name
 SAMPLES=("XEN-158A" "XEN-158B" "XEN-158C" "XEN-158D")

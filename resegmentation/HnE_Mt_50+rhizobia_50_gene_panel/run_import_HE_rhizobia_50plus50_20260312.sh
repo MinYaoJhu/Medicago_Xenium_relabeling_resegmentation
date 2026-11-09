@@ -2,23 +2,24 @@
 set -euo pipefail
 
 # === Config ===
-ROOT="/home/myj23/myj23/Xenium"
+XENIUM_ROOT="${XENIUM_ROOT:-/path/to/Xenium}"  # set to your Xenium data folder
+ROOT="$XENIUM_ROOT"
 
 # Relabeled Xenium outputs used as input bundles
-RELABEL_ROOT="$ROOT/relabeled/rhizobia_50+50/relabel_20260302"
+RELABEL_ROOT="${RELABEL_ROOT:-$ROOT/relabeled/rhizobia_50+50/relabel_20260302}"
 RELABEL_SUFFIX="_relabel_20260302"
 BUNDLE_SUBDIR="outs"
 
 # External segmentation inputs
-MASK_ROOT="$ROOT/inputs/cell_mask/selected_HE_mask"
-MATRIX_ROOT="$ROOT/inputs/transformation_matrix/HE"
+MASK_ROOT="${MASK_ROOT:-$ROOT/inputs/cell_mask/selected_HE_mask}"
+MATRIX_ROOT="${MATRIX_ROOT:-$ROOT/inputs/transformation_matrix/HE}"
 
 # Outputs
-OUT_ROOT="$ROOT/segmentation_output/resegmentation_20260312/rhizobia_50+50"
-LOG_DIR="$OUT_ROOT/logs"
+OUT_ROOT="${OUT_ROOT:-$ROOT/segmentation_output/resegmentation_20260312/rhizobia_50+50}"
+LOG_DIR="${LOG_DIR:-$OUT_ROOT/logs}"
 
-CORES=12
-MEM=24
+CORES="${CORES:-12}"
+MEM="${MEM:-24}"
 RUN_SUFFIX="HE_import_rhizobia_50plus50_20260312"
 
 # If FORCE=1, rerun and overwrite existing outputs

@@ -81,7 +81,14 @@ Resource settings used across the scripts:
 - `CORES=12`
 - `MEM=24`
 
-Before running on a different machine or with a different data layout, update the configuration block at the top of the relevant script.
+Before running, point the scripts to your data. Every path is built from one setting, `XENIUM_ROOT` (default placeholder: `/path/to/Xenium`), and each individual path, `CORES` and `MEM` can also be overridden from the environment without editing the script:
+
+```bash
+XENIUM_ROOT=/data/my_xenium_project bash relabeling/Mt_50_gene_panel/run_relabel_50g.sh
+CORES=24 MEM=64 XENIUM_ROOT=/data/my_xenium_project bash relabeling/Mt_50_gene_panel/run_relabel_50g.sh
+```
+
+The folder layout expected under `XENIUM_ROOT` (`raw_outputs/`, `subset_panel/`, `relabeled/`, `inputs/`, `segmentation_output/`) is shown in each script's configuration block.
 
 ## Relabeling scripts
 
@@ -144,4 +151,5 @@ FORCE=1 bash resegmentation/HnE_Mt_50+rhizobia_50_gene_panel/run_import_HE_rhizo
 ## Contact
 
 Min-Yao Jhu  
-Email: myj23@cam.ac.uk
+Donald Danforth Plant Science Center  
+Email: [MJhu@danforthcenter.org](mailto:MJhu@danforthcenter.org)

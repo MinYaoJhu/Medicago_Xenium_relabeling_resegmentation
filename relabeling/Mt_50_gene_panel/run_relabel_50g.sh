@@ -4,13 +4,14 @@ set -euo pipefail
 # =========================
 # CONFIG
 # =========================
-PANEL="/home/myj23/myj23/Xenium/subset_panel/corrected_panel_json/Mt_50_standalone_gene_panel_50g_updated_corrected.json"
-RAW_DIR="/home/myj23/myj23/Xenium/raw_outputs/50_gene"
-OUT_ROOT="/home/myj23/myj23/Xenium/relabeled/50_gene_panel/50_gene_relabel_20260208"
-LOG_DIR="$OUT_ROOT/logs"
+XENIUM_ROOT="${XENIUM_ROOT:-/path/to/Xenium}"  # set to your Xenium data folder
+PANEL="${PANEL:-${XENIUM_ROOT}/subset_panel/corrected_panel_json/Mt_50_standalone_gene_panel_50g_updated_corrected.json}"
+RAW_DIR="${RAW_DIR:-${XENIUM_ROOT}/raw_outputs/50_gene}"
+OUT_ROOT="${OUT_ROOT:-${XENIUM_ROOT}/relabeled/50_gene_panel/50_gene_relabel_20260208}"
+LOG_DIR="${LOG_DIR:-$OUT_ROOT/logs}"
 
-CORES=12
-MEM=24
+CORES="${CORES:-12}"
+MEM="${MEM:-24}"
 
 # Samples (must match the __XEN-?__ substring in bundle folder name)
 SAMPLES=("XEN-5A" "XEN-5B" "XEN-5C" "XEN-6A" "XEN-6B" "XEN-6C")
