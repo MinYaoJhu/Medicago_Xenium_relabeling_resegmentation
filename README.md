@@ -1,6 +1,8 @@
 # Medicago Xenium Relabeling and Resegmentation
 
-![Conceptual overview of the Medicago Xenium Relabeling and Resegmentation workflow](relabel_segmentation_workflow.png)
+<p align="center">
+  <img src="assets/workflow.svg" width="100%" alt="Workflow: raw Xenium bundles are relabeled with a corrected gene panel using xeniumranger relabel, then H&amp;E-derived cell masks, nuclei and an H&amp;E-to-Xenium transform are imported with xeniumranger import-segmentation to produce resegmented outputs"/>
+</p>
 
 ## Overview
 
@@ -22,6 +24,9 @@ The scripts are intentionally organized by analysis type and gene-panel/sample g
 .
 ├── README.md
 ├── LICENSE
+├── assets/
+│   ├── workflow.svg
+│   └── make_workflow.py      # reproducible figure generator
 ├── relabeling/
 │   ├── Mt_50_gene_panel/
 │   │   └── run_relabel_50g.sh
