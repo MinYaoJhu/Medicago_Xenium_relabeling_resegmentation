@@ -6,6 +6,7 @@
 ![Bash](https://img.shields.io/badge/Bash-scripts-4EAA25?logo=gnubash&logoColor=white)
 ![Xenium Ranger](https://img.shields.io/badge/Xenium%20Ranger-4.0.1.1-1A1A2E)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24095590.svg)](https://doi.org/10.5281/zenodo.24095590)
 
 This repository contains the batch scripts used to process the Xenium *in situ* datasets in:
 
@@ -145,7 +146,7 @@ FORCE=1 bash resegmentation/HnE_Mt_50+rhizobia_50_gene_panel/run_import_HE_rhizo
 
 ## Citation
 
-If you use these scripts, please cite the preprint above. GitHub's **"Cite this repository"** button (from [`CITATION.cff`](CITATION.cff)) gives the citation in APA and BibTeX formats.
+If you use these scripts, please cite the preprint above and the archived code: Jhu M-Y (2026). *Medicago Xenium Relabeling and Resegmentation* (v1.0.0). Zenodo. [doi:10.5281/zenodo.24095590](https://doi.org/10.5281/zenodo.24095590). GitHub's **"Cite this repository"** button (from [`CITATION.cff`](CITATION.cff)) gives the citation in APA and BibTeX formats.
 
 ## Contact
 
