@@ -39,6 +39,7 @@ Raw data are deposited in NCBI (see the Data Availability statement of the paper
 .
 ├── README.md
 ├── LICENSE
+├── CITATION.cff              # citation metadata (GitHub "Cite this repository")
 ├── assets/
 │   ├── workflow.svg
 │   └── make_workflow.py      # reproducible figure generator
@@ -144,7 +145,7 @@ FORCE=1 bash resegmentation/HnE_Mt_50+rhizobia_50_gene_panel/run_import_HE_rhizo
 
 ## Citation
 
-If you use these scripts, please cite the preprint above.
+If you use these scripts, please cite the preprint above. GitHub's **"Cite this repository"** button (from [`CITATION.cff`](CITATION.cff)) gives the citation in APA and BibTeX formats.
 
 ## Contact
 

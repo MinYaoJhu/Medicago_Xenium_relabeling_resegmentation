@@ -1,49 +1,27 @@
-# History files
+# Xenium Ranger run outputs and logs (written under XENIUM_ROOT, but ignore
+# them here in case scripts are run from inside the repository)
+logs/
+*.log
+outs/
+_panel_used/
+_vdrkill/
+*.mro
+*.tgz
+__*.mro
+
+# Xenium data files that should never be committed
+*.zarr.zip
+*.ome.tif
+*.ome.tiff
+*.tif
+*.tiff
+*.parquet
+*.h5
+!assets/*.svg
+
+# OS and editor files
+.DS_Store
+Thumbs.db
 .Rhistory
-.Rapp.history
-
-# Session Data files
 .RData
-.RDataTmp
-
-# User-specific files
-.Ruserdata
-
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
 .Rproj.user/
-
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
-
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
-
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
-
-# pkgdown site
-docs/
-
-# translation temp files
-po/*~
-
-# RStudio Connect folder
-rsconnect/

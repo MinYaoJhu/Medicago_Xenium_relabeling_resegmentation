@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use these scripts, please cite the article below."
+title: "Medicago Xenium Relabeling and Resegmentation"
+type: software
+version: 1.0.0
+date-released: "2026-11-09"
+abstract: >-
+  Batch scripts for processing Medicago truncatula root nodule Xenium in situ
+  datasets with Xenium Ranger 4.0.1.1: relabeling raw output bundles with the
+  study gene panel, then importing H&E-derived cell masks with the Xenium
+  nuclei and an H&E-to-Xenium coordinate transform (resegmentation).
+authors:
+  - family-names: Jhu
+    given-names: Min-Yao
+    affiliation: Donald Danforth Plant Science Center
+    orcid: "https://orcid.org/0000-0002-8654-0977"
+repository-code: "https://github.com/MinYaoJhu/Medicago_Xenium_relabeling_resegmentation"
+license: MIT
+keywords:
+  - spatial transcriptomics
+  - Xenium
+  - cell segmentation
+  - Medicago truncatula
+  - Sinorhizobium meliloti
+  - root nodule
+preferred-citation:
+  type: article
+  title: "4D spatial transcriptomics reveals nodule identity emerges through stacked parallel developmental programs"
+  authors:
+    - family-names: Jhu
+      given-names: Min-Yao
+      orcid: "https://orcid.org/0000-0002-8654-0977"
+    - family-names: Heffer
+      given-names: J.
+    - family-names: Xia
+      given-names: C.
+    - family-names: Moraes
+      given-names: T. A.
+    - family-names: Mulvey
+      given-names: C. M.
+    - family-names: Bressan
+      given-names: D.
+    - family-names: Liu
+      given-names: C.
+    - family-names: Gao
+      given-names: J. P.
+    - family-names: Poole
+      given-names: P.
+    - family-names: Schiessl
+      given-names: K.
+    - family-names: Oldroyd
+      given-names: G.
+  journal: bioRxiv
+  year: 2026
+  doi: 10.64898/2026.06.23.733685
