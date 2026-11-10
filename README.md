@@ -1,22 +1,37 @@
 # Medicago Xenium Relabeling and Resegmentation
 
+**Xenium Ranger pipelines for transcript relabeling and H&E-based cell resegmentation of *Medicago truncatula* root nodule spatial transcriptomics data**
+
+[![bioRxiv](https://img.shields.io/badge/bioRxiv-10.64898%2F2026.06.23.733685-B31B1B)](https://doi.org/10.64898/2026.06.23.733685)
+![Bash](https://img.shields.io/badge/Bash-scripts-4EAA25?logo=gnubash&logoColor=white)
+![Xenium Ranger](https://img.shields.io/badge/Xenium%20Ranger-4.0.1.1-1A1A2E)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+This repository contains the batch scripts used to process the Xenium *in situ* datasets in:
+
+> **Jhu M-Y**\*, Heffer J, Xia C, Moraes TA, Mulvey CM, Bressan D, Liu C, Gao JP, Poole P, Schiessl K, Oldroyd G\* (2026). 4D spatial transcriptomics reveals nodule identity emerges through stacked parallel developmental programs. *bioRxiv*. [doi:10.64898/2026.06.23.733685](https://doi.org/10.64898/2026.06.23.733685)
+
+Raw Xenium output bundles go through two steps:
+
+1. **Relabeling:** each bundle is relabeled with the gene panel used in this study (`xeniumranger relabel`). No re-imaging is needed.
+2. **Resegmentation:** cell boundaries from H&E-derived cell masks are imported into the relabeled bundle, together with the Xenium nuclei and an H&E-to-Xenium coordinate transform (`xeniumranger import-segmentation`).
+
 <p align="center">
-  <img src="assets/workflow.svg" width="100%" alt="Workflow: raw Xenium bundles are relabeled with a corrected gene panel using xeniumranger relabel, then H&amp;E-derived cell masks, nuclei and an H&amp;E-to-Xenium transform are imported with xeniumranger import-segmentation to produce resegmented outputs"/>
+  <img src="assets/workflow.svg" width="100%" alt="Workflow: raw Xenium bundles are relabeled with the study gene panel using xeniumranger relabel, then H&amp;E-derived cell masks, nuclei and an H&amp;E-to-Xenium transform are imported with xeniumranger import-segmentation to produce resegmented outputs"/>
 </p>
 
-## Overview
+## Datasets and gene panels
 
-This repository provides the analysis pipelines for transcript relabeling and cell segmentation used in:
+Four Xenium experiments are processed, each in its own folder. Two pilots were used to optimize the workflow and validate the experimental conditions; the other two are the datasets analyzed in the manuscript.
 
-**“4D spatial transcriptomics reveals nodule identity emerges through stacked parallel developmental programs”**  
+| Folder | Gene panel | Species | Role | H&E resegmentation |
+|---|---|---|---|---|
+| `Mt_50_gene_panel` | 50-gene *Medicago* panel | *M. truncatula* | Pilot: first test of plant spatial transcriptomics | – |
+| `Mt_50+rhizobia_50_gene_panel` | 50-gene *Medicago* + 50-gene rhizobia add-on | *M. truncatula* + *S. meliloti* 2011 | Pilot: first dual-species test | ✓ |
+| `Mt_350+55_gene_panel` | 405-gene *Medicago* panel (350 + 55 add-on) | *M. truncatula* | Manuscript dataset | ✓ |
+| `Mt_350+rhizobia_50_gene_panel` | 400-gene panel (350 *Medicago* + 50 rhizobia) | *M. truncatula* + *S. meliloti* 2011 | Manuscript dataset | ✓ |
 
-
-This repository documents batch scripts used to process Medicago Xenium datasets through two main stages:
-
-1. **Relabeling** Xenium raw output bundles with corrected or reduced gene-panel JSON files by using `xeniumranger relabel`.
-2. **Resegmentation / H&E cell-mask import** by using `xeniumranger import-segmentation` with H&E-derived cell masks, nuclei from the relabeled Xenium bundle, and an H&E-to-Xenium coordinate transform matrix.
-
-The scripts are intentionally organized by analysis type and gene-panel/sample group so each batch can be rerun independently.
+Raw data are deposited in NCBI (see the Data Availability statement of the paper).
 
 ## Repository folder structure
 
@@ -45,30 +60,6 @@ The scripts are intentionally organized by analysis type and gene-panel/sample g
         └── run_import_HE_rhizobia_50plus380_400gene_20260312.sh
 ```
 
-## Analysis workflow overview
-
-```text
-Raw Xenium bundle(s)
-        │
-        ▼
-Relabeling scripts
-xeniumranger relabel
-        │
-        ├── Uses corrected / subset gene-panel JSON
-        ├── Writes relabeled Xenium output folders
-        └── Saves per-sample logs
-        │
-        ▼
-Resegmentation scripts
-xeniumranger import-segmentation
-        │
-        ├── Uses relabeled bundle outs/ as --xenium-bundle
-        ├── Uses cells.zarr.zip from the relabeled bundle as nuclei
-        ├── Uses H&E-derived cell mask TIFF as cells
-        ├── Uses matrix.csv as coordinate transform
-        └── Writes resegmented Xenium output folders and logs
-```
-
 ## General requirements
 
 These scripts are Bash scripts and assume they are run on the processing system where the referenced Xenium data directories exist.
@@ -76,7 +67,7 @@ These scripts are Bash scripts and assume they are run on the processing system 
 Required command-line tools:
 
 - `bash`
-- `xeniumranger`
+- [`xeniumranger`](https://www.10xgenomics.com/support/software/xenium-ranger/latest) (version 4.0.1.1)
 - `jq`
 - `sha256sum` for most relabeling scripts
 - standard Unix tools such as `find`, `sed`, `awk`, `sort`, `tee`, and `mkdir`
@@ -145,16 +136,18 @@ To force a resegmentation rerun and overwrite an existing output folder, set `FO
 FORCE=1 bash resegmentation/HnE_Mt_50+rhizobia_50_gene_panel/run_import_HE_rhizobia_50plus50_20260312.sh
 ```
 
----
+## Related repositories
 
-## Dependencies
+- [Medicago_Rhizobia_Xenium_Analysis_Workflow](https://github.com/MinYaoJhu/Medicago_Rhizobia_Xenium_Analysis_Workflow): downstream analysis of the relabeled and resegmented data
+- [MedicagoXeniumSpatialViewer](https://github.com/MinYaoJhu/MedicagoXeniumSpatialViewer): interactive Shiny app for exploring Xenium data
+- [Xenium_data_analysis_training](https://github.com/MinYaoJhu/Xenium_data_analysis_training): a 4-week training program on Xenium data analysis
 
-- Xenium Ranger
+## Citation
 
----
+If you use these scripts, please cite the preprint above.
 
 ## Contact
 
-Min-Yao Jhu  
+**Min-Yao Jhu**, Senior Research Scientist  
 Donald Danforth Plant Science Center  
 Email: [MJhu@danforthcenter.org](mailto:MJhu@danforthcenter.org)
