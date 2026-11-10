@@ -1,4 +1,4 @@
-# Medicago Xenium Relabeling and Resegmentation
+# Medicago Xenium Relabeling and Resegmentation <img src="assets/logo.svg" align="right" width="140" alt="Relabel + Resegment logo"/>
 
 **Xenium Ranger pipelines for transcript relabeling and H&E-based cell resegmentation of *Medicago truncatula* root nodule spatial transcriptomics data**
 
@@ -42,8 +42,10 @@ Raw data are deposited in NCBI (see the Data Availability statement of the paper
 ├── LICENSE
 ├── CITATION.cff              # citation metadata (GitHub "Cite this repository")
 ├── assets/
+│   ├── logo.svg
 │   ├── workflow.svg
-│   └── make_workflow.py      # reproducible figure generator
+│   ├── make_logo.py          # reproducible figure generators
+│   └── make_workflow.py
 ├── relabeling/
 │   ├── Mt_50_gene_panel/
 │   │   └── run_relabel_50g.sh
