@@ -148,6 +148,10 @@ FORCE=1 bash resegmentation/HnE_Mt_50+rhizobia_50_gene_panel/run_import_HE_rhizo
 
 If you use these scripts, please cite the preprint above and the archived code: Jhu M-Y (2026). *Medicago Xenium Relabeling and Resegmentation* (v1.0.0). Zenodo. [doi:10.5281/zenodo.24095590](https://doi.org/10.5281/zenodo.24095590). GitHub's **"Cite this repository"** button (from [`CITATION.cff`](CITATION.cff)) gives the citation in APA and BibTeX formats.
 
+## AI assistance
+
+Code refactoring, documentation and figures in this repository were developed with the assistance of Claude Opus 5.5 (Anthropic), used through Claude Code. All changes were directed, reviewed and approved by the author, who takes full responsibility for the content.
+
 ## Contact
 
 **Min-Yao Jhu**, Senior Research Scientist  
